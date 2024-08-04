@@ -1,0 +1,54 @@
+<!-- dialog-form-servico.component.html -->
+<h1 mat-dialog-title>{{ edicao ? 'Editar Serviço' : 'Adicionar Serviço' }}</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="form" (ngSubmit)="salvar()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" />
+      <mat-error *ngIf="form.get('nome')?.hasError('required')">
+        O nome é obrigatório.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput formControlName="descricao"></textarea>
+      <mat-error *ngIf="form.get('descricao')?.hasError('required')">
+        A descrição é obrigatória.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Preço</mat-label>
+      <input matInput type="number" formControlName="preco" />
+      <mat-error *ngIf="form.get('preco')?.hasError('required')">
+        O preço é obrigatório.
+      </mat-error>
+      <mat-error *ngIf="form.get('preco')?.hasError('min')">
+        O preço deve ser maior ou igual a zero.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Duração</mat-label>
+      <input matInput formControlName="duracao" />
+      <mat-error *ngIf="form.get('duracao')?.hasError('required')">
+        A duração é obrigatória.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Categoria</mat-label>
+      <input matInput formControlName="categoria" />
+      <mat-error *ngIf="form.get('categoria')?.hasError('required')">
+        A categoria é obrigatória.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="salvar()">Salvar</button>
+  <button mat-button (click)="close()">Cancelar</button>
+</div>

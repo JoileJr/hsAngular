@@ -1,0 +1,10 @@
+<mat-toolbar class="mat-elevation-z6" color="primary">
+  <mat-toolbar-row class="toolbar-center">
+    <button mat-button [routerLink]="'/estabelecimentos'" routerLinkActive="active-route">Estabelecimentos</button>
+    <button mat-button [routerLink]="'/clientes'" routerLinkActive="active-route">Clientes</button>
+    <button mat-button [routerLink]="'/servicos'" routerLinkActive="active-route">Serviços</button>
+    <button mat-button [routerLink]="'/colaborador'" routerLinkActive="active-route">Colaboradores</button>
+    <button mat-button [routerLink]="'/sobre'" routerLinkActive="active-route">Sobre</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>
